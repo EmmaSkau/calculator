@@ -1,0 +1,57 @@
+$mellemrum: 10px;
+$operatorFarve: rgb(81, 81, 81);
+$tekst: center;
+
+h1{
+    text-align: $tekst;
+}
+
+p{
+    text-align: $tekst;
+    margin-bottom: 3rem;
+}
+
+.lommeregner {
+    max-width: 40%;
+    background-color: black;
+    padding: $mellemrum;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: $mellemrum;
+    margin: 0 auto;
+}
+
+button {
+    background-color: gray;
+    color: white;
+    font-size: 2rem;
+    padding: 20px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(105, 105, 105);
+}
+
+#display {
+    grid-column: span 4;
+    padding: 20px;
+    font-size: 2em;
+    text-align: right;
+    background-color: #f0f0f0;
+}
+
+#equals {
+    grid-column: span 2;
+    background-color: $operatorFarve;
+}
+
+.operator, #clear{
+    background-color: $operatorFarve;
+}
+
+
+
+
