@@ -1,6 +1,7 @@
 $mellemrum: 10px;
 $operatorFarve: rgb(81, 81, 81);
 $tekst: center;
+$tekstFarve: white;
 
 h1{
     text-align: $tekst;
@@ -23,7 +24,7 @@ p{
 
 button {
     background-color: gray;
-    color: white;
+    color: $tekstFarve;
     font-size: 2rem;
     padding: 20px;
     text-align: center;
@@ -52,6 +53,18 @@ button:hover {
     background-color: $operatorFarve;
 }
 
+main{
+    max-height: 80vh;
+}
+
+footer{
+    max-height: 20vh;
+    background-color: $operatorFarve;
+}
+
+.footerP{
+    color: $tekstFarve;
+}
 
 
 
