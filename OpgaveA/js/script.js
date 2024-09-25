@@ -4,10 +4,12 @@ let firstValue = null;
 let operator = null;
 let awaitingNextValue = false;
 
+// Opdatering af display
 function updateDisplay() {
     display.textContent = currentInput;
 }
 
+// Modtagelse af tal
 function handleNumber(num) {
     if (awaitingNextValue) {
         currentInput = num;
@@ -18,27 +20,41 @@ function handleNumber(num) {
     updateDisplay();
 }
 
+// Operatører
 function handleOperator(op) {
-    if (firstValue === null) {
-        firstValue = parseFloat(currentInput);
-    } else if (operator) {
-        const result = calculate(firstValue, parseFloat(currentInput), operator);
-        currentInput = String(result);
-        firstValue = result;
-        updateDisplay();
+    if (op === '%') {
+        currentInput = parseFloat(currentInput) / 100 * firstValue;
+        awaitingNextValue = true;
+    } else if (op === '.') {
+        if (!currentInput.includes('.')) {
+            currentInput += '.';
+            updateDisplay();
+        }
+    } else {
+        if (firstValue === null) {
+            firstValue = parseFloat(currentInput);
+        } else if (operator) {
+            const result = calculate(firstValue, parseFloat(currentInput), operator);
+            currentInput = String(result);
+            firstValue = result;
+            updateDisplay();
+        }
+        operator = op;
+        awaitingNextValue = true;
     }
-    operator = op;
-    awaitingNextValue = true;
 }
 
+// Selve regning af tal
 function calculate(first, second, op) {
     if (op === '+') return first + second;
     if (op === '-') return first - second;
     if (op === '*') return first * second;
     if (op === '/') return first / second;
+    if (op === '.') return first + '.' + second;
     return second;
 }
 
+// Clear mit display
 function clearDisplay() {
     currentInput = '0';
     firstValue = null;
@@ -56,9 +72,9 @@ document.querySelectorAll('.operator').forEach(button => {
     button.addEventListener('click', () => handleOperator(button.textContent));
 });
 
-document.getElementById('clear').addEventListener('click', clearDisplay);
+document.getElementsByClassName('clear')[0].addEventListener('click', clearDisplay);
 
-document.getElementById('equals').addEventListener('click', () => {
+document.getElementsByClassName('equals')[0].addEventListener('click', () => {
     if (operator) {
         const result = calculate(firstValue, parseFloat(currentInput), operator);
         currentInput = String(result);
