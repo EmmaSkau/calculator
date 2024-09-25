@@ -13,7 +13,7 @@ function handleNumber(num) {
         currentInput = num;
         awaitingNextValue = false;
     } else {
-        currentInput = currentInput === '0' ? num : currentInput + num;
+        currentInput === '0' ? num : currentInput + num;
     }
     updateDisplay();
 }
