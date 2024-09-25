@@ -39,11 +39,6 @@ button:hover {
   background-color: #f0f0f0;
 }
 
-#equals {
-  grid-column: span 2;
-  background-color: rgb(81, 81, 81);
-}
-
-.operator, #clear {
+.operator, #clear, #equals {
   background-color: rgb(81, 81, 81);
 }/*# sourceMappingURL=style.css.map */
