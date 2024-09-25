@@ -13,7 +13,7 @@ function handleNumber(num) {
         currentInput = num;
         awaitingNextValue = false;
     } else {
-        currentInput === '0' ? num : currentInput + num;
+        currentInput = currentInput === '0' ? num : currentInput + num;
     }
     updateDisplay();
 }
@@ -47,7 +47,7 @@ function clearDisplay() {
     updateDisplay();
 }
 
-// Event Listeners for buttons
+// Event Listeners for alle knapper
 document.querySelectorAll('.number').forEach(button => {
     button.addEventListener('click', () => handleNumber(button.textContent));
 });
