@@ -15,7 +15,7 @@ function handleNumber(num) {
         currentInput = num;
         awaitingNextValue = false;
     } else {
-        currentInput = currentInput === '0' ? num : currentInput + num;
+        currentInput = currentInput === '0' ? num : currentInput + num; // ternary operator
     }
     updateDisplay();
 }
@@ -26,11 +26,11 @@ function handleOperator(op) {
         currentInput = parseFloat(currentInput) / 100 * firstValue;
         awaitingNextValue = true;
     } else if (op === '.') {
-        if (!currentInput.includes('.')) {
+        if (!currentInput.includes('.')) { // conditional statement + logical not operator
             currentInput += '.';
             updateDisplay();
         }
-    } else {
+    } else { // generelle udregning
         if (firstValue === null) {
             firstValue = parseFloat(currentInput);
         } else if (operator) {
